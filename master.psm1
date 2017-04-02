@@ -307,7 +307,10 @@ then changes the bots time to match the random Date
           
     )
     #generation of a random date
+<<<<<<< HEAD
     #original method from https://saadware.wordpress.com/2008/06/12/generate-random-dates-in-powershell/ 
+=======
+>>>>>>> master
     $filename = 'C:\Program Files\botlist.csv'
 	[DateTime]$theMin = "1/1/1900"
 	[DateTime]$theMax = "1/1/2100"
