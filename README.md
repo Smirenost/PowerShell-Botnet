@@ -155,7 +155,7 @@ This project has been tested using Windows 10 Virtual machines running on VMware
 
 This project was crteated for Educational purposes only and should not be used in any illegal mananer
 
-For more information in reguards to protecting against malicious malware please see the following:
+For more information in reguards to protecting against malicious PowerShell please see the following:
 https://adsecurity.org/?p=2604
 
 
