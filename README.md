@@ -1,8 +1,8 @@
 # PowerShell-Botnet
-##A  POC powershell botnet
+## A POC powershell botnet
 
 
-#Master Installation
+# Master Installation
 	1. Run PowerShell as Admin
 	2. Set-Execution Policy UnRestricted
 	3. Import-Module <Path\to\module>
@@ -10,34 +10,34 @@
 	5. Additional information about function can be gained by:
 	Get-Help <Function Name>
 
-#Bot setup
+# Bot setup
 	the bot script currently uses 192.168.1.130
 	to use a different server any instance of $ServerIP should be changed
 
 	When run bot script will require admin privileges
 	a window will flash for a second
 	after some time the system will restart
-	**bold** at this point if the bot does not connect to the master after 4 restart the bot's MFT will be overwritten
+	 !!!At this point if the bot does not connect to the master after 4 restart the bot's MFT will be overwritten!!!
 
 
 
 
 
-# Master Commands:</h1>
+# Master Commands
 	
-	##Initialize-Master:
-		Performs tasks that allow the local host to send commands to bots
-	    Starts by adding a user that is used by bots to write to the bot list file
-	    modifies all networks to be set to private which is required foir remoting
-	    Creates CSV file "botlist" for storing bots
-	    Enable the services for remote PowerShell commands
-	    Allows all hosts to connect and execute commands on the local host
-	    Restarts WinRM service to apply changes
+## Initialize-Master:
+	Performs tasks that allow the local host to send commands to bots
+	Starts by adding a user that is used by bots to write to the bot list file
+	modifies all networks to be set to private which is required foir remoting
+	Creates CSV file "botlist" for storing bots
+	Enable the services for remote PowerShell commands
+	Allows all hosts to connect and execute commands on the local host
+	Restarts WinRM service to apply changes
 
-	    Usage: Initalize-Master
+	Usage: Initalize-Master
 
-	##Test-Bot:
-		<p>Tests if bot can be reach from the master 
+## Test-Bot:
+		Tests if bot can be reach from the master 
 		if the specified bot can be reached 
 		    if the bot does not exist in the botlist CSV file, the bot's IP,Hostname,0
 		    the 0 being the number of times the master has filed to connect
@@ -50,13 +50,13 @@
 		Usage: Test-Bot <BOT IP Address>
 
 	
-	##Test-AllBots:
+## Test-AllBots:
 		Performs the test-bot command on all bots listed in the botlist.csv file
  		goes sequentaly through the botlist.csv file and runs the Test-Bot command
 
  		Usage: Test-AllBots
 
- 	##Test-Target:
+ ## Test-Target:
  		Randomly selects a bot form the botlist.csv file
 		Runs test-bot to ensure that the bot is up
 		then uses the bot to ping a specified IP address
@@ -64,7 +64,7 @@
 		Usage: Test-Target <Target IP Address>
 
 
-	##Test-DDOSTarget:
+## Test-DDOSTarget:
 		Goes down the botlist.csv file  tests the bot
 		then the bot pings the target ip address
 		the hope is that with enough host a DDoS would occur
@@ -72,31 +72,31 @@
 		Usage: Test-DDOSTarget <Target IP Address>
 
 
-	##Set-RandomTime:
+## Set-RandomTime:
 		Generates a random Date object between 1/1/1900 to 1/1/2100
 		then tests if the bot is up 
 		then changes the bots time to match the random Date
 
 		Usage: Set-RandomTime <Target IP Address>
 
-	##Set-AllRandomTime:
+## Set-AllRandomTime:
 		Goes through the botlist csv file and passes each bots ip address to Set-Randtime
 
 		Usage: Set-AllRandomTime
 
-	##Send-BlueScreen:
+## Send-BlueScreen:
 		Using Get-Proccss then piping to Stop-Proccess -force on the specified bot 
 		Causes the bot to bluescreen
 
 		Usage: Send-BlueScreen <Target IP Address>
 
-	##Send-BlueScreenAll:
+## Send-BlueScreenAll:
 		Parses IP addresses of all bots in the botlist.csv file
 		one by one these IP addresses are passed to the Send-BlueScreen command
 
 		Usage: Send-BlueScreenAll
 
-	##Remove-Bot:
+## Remove-Bot:
 		uses a function included as part of the Mayhem Module of Powerspolit: 
 			https://github.com/PowerShellMafia/PowerSploit
 		To overwrite the master file table of the specified bot
@@ -104,7 +104,7 @@
 
 		Usage: Remove-Bot <Target IP Address>
 
-	##Clear-BotNet:
+## Clear-BotNet:
 		uses a function included as part of the Mayhem Module of Powerspolit:
 			https://github.com/PowerShellMafia/PowerSploit
 		To overwrite the master file table of all bots in the botlist.csv file
@@ -115,29 +115,29 @@
 
 
 
-#Bot Actions taken
+# Bot Actions taken
 
-	##steps taken by the Bot script when executed
-	1. Elevates privilages
-	2. Enables the System to recive/respond to ICMP requests
-		Enables pinging
-	3. Makes it so all hosts are considered as trusted
-	4. Changes all conntected networks to be considered as private networks
-		This alows for powershell remoting between the bot and the master
-	5. Enabling of PowerShell remoting
-	6. Restarts WinRM Service 
-	7. Create a Cerdintial object for connecting to the master
-	8. Pings the Master server, and if up adds its IP address and host name to the bot list file
-	9. Creates a new user and adds it to the Admistrator group
-		used to run commands sent from the master
-	10. Create a text file with a single "0" to be used for the kill switch
-		File is located in the C:\ directory
-	11. Disable UAC through registry modification
-	12. Makes PowerShell scripts run on double click
-	13. write kill switch PowerShell script to update.ps1 in the Startup folder
-		this check if the bot can reach the master and if not it checks the count file in C:\ if the stored value is 4. the bots MFT is overwrriten, if under 4 the value is incremented
-	14. Changes the Creation , Last Access and Last Write time of update.ps1
-	15. Forces restart the computer
+## Steps taken by the Bot script when executed
+1. Elevates privilages
+2. Enables the System to recive/respond to ICMP requests
+	Enables pinging
+3. Makes it so all hosts are considered as trusted
+4. Changes all conntected networks to be considered as private networks
+	This alows for powershell remoting between the bot and the master
+5. Enabling of PowerShell remoting
+6. Restarts WinRM Service 
+7. Create a Cerdintial object for connecting to the master
+8. Pings the Master server, and if up adds its IP address and host name to the bot list file
+9. Creates a new user and adds it to the Admistrator group
+	Used to run commands sent from the master
+10. Create a text file with a single "0" to be used for the kill switch
+	File is located in the C:\ directory
+11. Disable UAC through registry modification
+12. Makes PowerShell scripts run on double click
+13. write kill switch PowerShell script to update.ps1 in the Startup folder
+		This check if the bot can reach the master and if not it checks the count file in C:\ if the stored value is 4. the bots MFT is overwrriten, if under 4 the value is incremented
+14. Changes the Creation , Last Access and Last Write time of update.ps1
+15. Forces restart the computer
 
 
 	
