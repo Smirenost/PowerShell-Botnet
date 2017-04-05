@@ -159,6 +159,8 @@ For more information in reguards to protecting against malicious PowerShell plea
 https://adsecurity.org/?p=2604
 
 
+# License
+
 MIT License
 
 Copyright (c) 2017, William Kleinhenz
