@@ -17,7 +17,7 @@
 	When run bot script will require admin privileges
 	a window will flash for a second
 	after some time the system will restart
-	 !!!At this point if the bot does not connect to the master after 4 restart the bot's MFT will be overwritten!!!
+	 !!!At this point if the bot does not connect to the master after 4 restarts the bot's MFT will be overwritten!!!
 
 
 
