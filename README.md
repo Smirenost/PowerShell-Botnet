@@ -10,7 +10,7 @@
 	5. Additional information about function can be gained by:
 	Get-Help <Function Name>
 
-# Bot setup
+# Bot Setup
 	the bot script currently uses 192.168.1.130
 	to use a different server any instance of $ServerIP should be changed
 
@@ -117,7 +117,7 @@
 
 # Bot Actions taken
 
-## Steps taken by the Bot script when executed
+## Steps taken by the Bot script
 1. Elevates privilages
 2. Enables the System to recive/respond to ICMP requests
 	Enables pinging
@@ -149,7 +149,7 @@
 
 
 
-
+# Notes
 
 This project has been tested using Windows 10 Virtual machines running on VMware Workstation 12.5
 
