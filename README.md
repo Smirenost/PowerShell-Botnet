@@ -56,7 +56,7 @@
 
  		Usage: Test-AllBots
 
- ## Test-Target:
+## Test-Target:
  		Randomly selects a bot form the botlist.csv file
 		Runs test-bot to ensure that the bot is up
 		then uses the bot to ping a specified IP address
